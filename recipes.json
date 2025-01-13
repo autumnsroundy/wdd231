@@ -1,0 +1,85 @@
+{
+    "recipe_name": "Chocolate Chip Cookies",
+    "yields": "servings: 6",
+    "ingredients": [
+        { 
+        "name": "butter",
+        "amounts": {
+            "amount": "1",
+            "unit": "lb"
+            },
+            "notes": "softened"
+        },
+        { 
+        "name": "brown sugar",
+        "amounts": {
+            "amount": "1 1/2",
+            "unit": "cups"
+            }
+        },
+        { 
+        "name": "white sugar",
+        "amounts": {
+            "amount": "1",
+            "unit": "cup"
+            }
+        },
+        { 
+            "name": "eggs",
+            "amounts": {
+                "amount": "3",
+                "unit": "each"
+            }
+        },
+        { 
+            "name": "vanilla extract",
+            "amounts": {
+                "amount": "2",
+                "unit": "tsp"
+                }
+        },
+        { 
+            "name": "baking soda",
+            "amounts": {
+                "amount": "1 1/2",
+                "unit": "tsp"
+                }
+        },
+        { 
+            "name": "salt",
+            "amounts": {
+                "amount": "1/2",
+                "unit": "tsp"
+                }
+        },
+        { 
+            "name": "flour",
+            "amounts": {
+                "amount": "5",
+                "unit": "cups"
+                },
+                "notes": "(we like 3C white and 2C whole wheat)"
+        },
+        { 
+            "name": "semi-sweet chocolate chips",
+            "amounts": {
+                "amount": "2",
+                "unit": "cups"
+                }
+        },
+        { 
+            "name": "coconut flakes",
+            "amounts": {
+                "amount": "1-2",
+                "unit": "cups"
+                },
+                "notes": "optional"
+        }
+    ],
+"steps": [
+    "Cream butter and sugar together, then beat in the eggs and vanilla.",
+    "Mix in salt, baking soda, and flour (one cup at a time).",
+    "Add chocolate chips and coconut flakes.",
+    "Bake 8-10 minutes at 350 F."
+]
+}
