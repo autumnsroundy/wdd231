@@ -1,28 +1,52 @@
-import { getParkData } from "./parkService.mjs";
-
+import { getParkData, parkInfoLinks } from "./parkService.mjs";
+import {
+  parkInfoTemplate,
+  mediaCardTemplate,
+  footerTemplate
+} from "./templates.mjs";
+import setHeaderFooter from "./setHeaderFooter.mjs";
+import { mediaCardTemplate } from "./templates.mjs";
 const parkData = getParkData();
 
-// 1. Update the disclaimer link
-const disclaimer = document.querySelector(".disclaimer > a");
-disclaimer.href = parkData.url;
-disclaimer.innerHTML = parkData.fullName;
+//put the data from Week 01 into a function
 
-// 2. Update the title of the page
-document.title = parkData.fullName;
-
-// 3. Update the hero image
-const heroImage = document.querySelector(".hero-banner__image");
-heroImage.src = parkData.images[0].url; // First image in the list
-
-// 4. Update the hero info (name, designation, states)
-function parkInfoTemplate(info) {
-  return `
-    <a href="/" class="hero-banner__title">${info.name}</a>
-    <p class="hero-banner__subtitle">
-      <span>${info.designation}</span>
-      <span>${info.states}</span>
-    </p>`;
+function setHeaderInfo(data) {
+  // insert data into disclaimer section
+  const disclaimer = document.querySelector(".disclaimer > a");
+  disclaimer.href = data.url;
+  disclaimer.innerHTML = data.fullName;
+  // update the title of the site. Notice that we can select things in the head just like in the body with querySelector
+  document.querySelector("head > title").textContent = data.fullName;
+  // set the banner image
+  document.querySelector(".hero-banner > img").src = data.images[0].url;
+  // use the template function above to set the rest of the park specific info in the header
+  document.querySelector(".hero-banner__content").innerHTML =
+    parkInfoTemplate(data);
 }
 
-const heroInfo = document.querySelector(".hero-banner__info");
-heroInfo.innerHTML = parkInfoTemplate(parkData);
+//step 1 on todo list
+function setParkIntro(data) {
+  const introEl = document.querySelector(".intro");
+  introEl.innerHTML = `<h1>${parkData.fullName}</h1><p>${parkData.description}</p>`;
+}
+
+//step 3 on todo list
+function setParkInfoLinks(data) {
+  const infoEl = document.querySelector(".info");
+  //Loop through and run mediaCardTemplate -take HTML returned and insert into info section (MAP)
+  const html = data.map(mediaCardTemplate); //step 4 on todo list
+  infoEl.innerHTML = html.join("");
+}
+
+function setFooter(data) {
+  const footerEl = document.querySelector("#park-footer");
+  footerEl.innerHTML = footerTemplate(data);
+  // join the array of strings into one string and insert it into the section
+  infoEl.insertAdjacentHTML("afterbegin", html.join(""));
+}
+
+setHeaderInfo(parkData);
+setHeaderFooter(parkData);
+setParkIntro(parkData);
+setParkInfoLinks(parkInfoLinks);
+setFooter(parkData);
