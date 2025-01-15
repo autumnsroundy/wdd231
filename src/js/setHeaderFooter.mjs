@@ -1,5 +1,6 @@
 import { parkInfoTemplate, footerTemplate } from "./templates.mjs";
 
+//put the data from Week 01 into a function: refactor too
 function setHeaderInfo(data) {
   // insert data into disclaimer section
   const disclaimer = document.querySelector(".disclaimer > a");
