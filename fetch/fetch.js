@@ -1,4 +1,5 @@
 const url = "https://pokeapi.co/api/v2/pokemon/ditto";
+const urlList = "https://pokeapi.co/api/v2/pokemon";
 let results = null;
 async function getPokemon(url) {
   const response = await fetch(url);
@@ -10,6 +11,13 @@ async function getPokemon(url) {
     doStuff(data);
   }
 }
+async function getPokemonList(url) {
+    const response = await fetch(url);
+    if (response.ok) {
+        const data = await response.json();
+        doStuffList(data);
+    }
+}
 function doStuff(data) {
     const outputElement = document.querySelector('#output');
     results = data;
@@ -18,6 +26,15 @@ function doStuff(data) {
     outputElement.innerHTML = html;
     console.log("first: ", results);
 }
+function doStuffList(data) {
+    console.log(data);
+    const pokeListElement = document.querySelector("#outputList");
+    const pokeList = data.results;
+    pokeList.forEach((currentItem) => {
+        const html = `<li>${currentItem.name}</li>`;
+        pokeListElement.innerHTML += html;
+    });
+}
 getPokemon(url);
 console.log("second: ", results);
-
+getPokemonList(urlList);
