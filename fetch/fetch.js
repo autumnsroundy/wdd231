@@ -26,6 +26,17 @@ function doStuff(data) {
     outputElement.innerHTML = html;
     console.log("first: ", results);
 }
+function compare(a,b) {
+    if(a.name > b.name) {
+        return 1; //sort b before a
+    } else if (a.name < b.name) {
+        return -1;
+    } else return 0; //a is = to b
+}
+function sortPokemon(list) {
+    let sortredList = list.sort(compare);
+    return sortredList;
+}
 function doStuffList(data) {
     console.log(data);
     const pokeListElement = document.querySelector("#outputList");
