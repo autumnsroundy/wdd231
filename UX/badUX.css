@@ -1,0 +1,87 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif; /*more universal/ nuetral font for improved readability*/
+    background-color: #f4f4f4; /*better background color with contrast to help readability*/
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header */
+h1 {
+    color: #444;
+    font-size: 36px;
+}
+
+/* Responsive desgin imrpovement for potential mobile devices*/
+img {     /*optimized image loading for responsiveness and fast loading*/
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+/* improved structre and content organization for navigation and readability*/
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* improved form with added labels and styling for usablity */
+form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;  /* Centers the input and button */
+    justify-content: center; /* Centers content within form */
+    background: #fff;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto; /* Centers the form itself */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 10;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    form {
+        width: 90%;
+    }
+}
