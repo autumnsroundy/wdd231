@@ -17,17 +17,14 @@ export function mediaCardTemplate(info) {
    <p>${info.description}</p>
      </div>`;
 }
-
 function getMailingAddress(addresses) {
   const mailing = addresses.find((address) => address.type === "Mailing");
   return mailing;
 }
-
 function getVoicePhone(numbers) {
   const voice = numbers.find((number) => number.type === "Voice");
   return voice.phoneNumber;
 }
-
 export function footerTemplate(info) {
   const mailing = getMailingAddress(info.addresses);
   const voice = getVoicePhone(info.contacts.phoneNumbers);
@@ -106,7 +103,6 @@ export function vcInfoTemplate(data) {
         </figure>
         <p>${data.description}</p>`;
 }
-
 export function listTemplate(data, contentTemplate) {
   const html = data.map(contentTemplate);
   return `<ul>${html.join("")}</ul>`;
@@ -125,24 +121,18 @@ function vcAddressTemplate(data) {
 export function vcAddressesListTemplate(data) {
   const physical = data.find((address) => address.type === "Physical");
   const mailing = data.find((address) => address.type === "Mailing");
-  let html = "";
-  if (physical) {
-    html += vcAddressTemplate(physical);
-  }
+  let html = vcAddressTemplate(physical);
   if (mailing) {
     html += vcAddressTemplate(mailing);
   }
-  return html || "<p>No addresses available</p>";
+  return html;
 }
-
 export function vcAmenityTemplate(data) {
   return `<li>${data}</li>`;
 }
-
 export function vcDirectionsTemplate(data) {
   return `<p>${data}</p>`;
 }
-
 export function vcContactsTemplate(data) {
   return `<section class="vc-contact__email">
             <h3>Email Address</h3>
@@ -155,5 +145,5 @@ export function vcContactsTemplate(data) {
 }
 
 export function vcImageTemplate(data) {
-  return `<li><img src="${data.url}" alt="${data.altText}" /></li>`;
+  return `<li><img src="${data.url}" alt="${data.altText}" ><li>`;
 }
